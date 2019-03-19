@@ -1,17 +1,25 @@
 # practice1
 #include<stdio.h>
+
 #include<stdlib.h>
+
 #include<math.h>
+
 int panbie(int x, int y)
+
 {
+
     int i, m, n;
+    
     int a[10] = { 0 };
+    
     for (i = 0; i <= 4; i++)
     {
         n= x % 10;
         a[n]++;
         x = x/ 10;//
     }
+    
     for (i = 0; i <= 3; i++)
     {
         n = y % 10;
@@ -28,6 +36,7 @@ int panbie(int x, int y)
 
 int main()
 {
+    
     int wu, si,i;
     for (wu = 10000; wu < 100000;wu++)
     for (si = 1000; si < 10000; si++)
