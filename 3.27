@@ -1,0 +1,172 @@
+# practice1
+1.完成猜数字游戏。
+
+2.写代码可以在整型有序数组中查找想要的数字，
+找到了返回下标，找不到返回-1.（折半查找）
+
+3.编写代码模拟三次密码输入的场景。
+最多能输入三次密码，密码正确，提示“登录成功”,密码错误，
+可以重新输入，最多输入三次。三次均错，则提示退出程序。
+
+4.编写一个程序，可以一直接收键盘字符，
+如果是小写字符就输出对应的大写字符，
+如果接收的是大写字符，就输出对应的小写字符，
+如果是数字不输出。
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>//生成随机函数起点时用到time.h
+int main()
+{
+    int number1 = 0, choice = 0, number2 = 0;
+    printf("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");//界面设置
+    printf("$$$$$     欢          迎             来           到     $$$$$\n");
+    printf("$$$$$          猜     数      字     游      戏          $$$$$\n");
+    printf("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+    printf("                         1.进入游戏\n");
+    printf("                         2.退出游戏\n");
+    scanf("%d", &choice);
+        srand((unsigned int)time(NULL));//设置随机数起点
+        while (choice == 1)
+        {
+            printf("请输入所猜的数:\n");
+            scanf("%d", &number2);
+            number1 = rand() % 100;
+            while (1)
+            {
+
+                if (number2 == number1)
+                {
+                    printf("666 恭喜你答对了！");
+                    printf("\n1.再玩一次\n2.退出游戏\n");
+                    scanf("%d", &number2);
+                    if (number2 == 1)
+                        break;
+                    if (number2 == 2)
+                        return 0;
+                }
+
+                if (number2 < number1)
+                {
+                    printf("\n猜小了!\n");
+                    scanf("%d", &number2);
+                }
+                if (number2 > number1)
+                {
+                    printf("\n猜大了!\n");
+                    scanf("%d", &number2);
+                }
+            }
+        }
+    while(choice == 2)
+    {
+        return 0;
+    }
+    system("pause");
+    return 0;
+}
+
+第二题
+#include<stdio.h>
+#include<stdlib.h>
+
+int search(int a[], int x, int left, int right)
+{
+	while (left <= right)
+	{
+		int mid = (left + right) / 2;
+		if (x < a[mid])
+		{
+			right = mid-1;
+		}
+		if (x>a[mid])
+		{
+			left = mid+1;
+		}
+		else
+		{
+			return mid;
+		}
+
+	}
+	return 0;
+}
+
+int main()
+{
+	int i, m, n;
+	int a[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	int left = 0, right = sizeof(a)/sizeof(a[0]) - 1;
+	printf("请输入你要查找的数字:\n");
+	scanf("%d", &n);
+	m = search(a, n,left,right);
+	if (m)
+	{
+		printf("找到了\n");
+	}
+	else
+		printf("找不到\n");
+	system("pause");
+	return 0;
+}
+
+第三题
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main()
+{
+	int i, suu=1;
+	char a[] = "theworld\0";
+	char b[20];
+	while (1)
+	{
+		printf("请输入密码:\n");
+		scanf("%s", &b);
+		i = strcmp(a, b);
+		if (i == 0)
+		{
+			printf("密码输入正确\n");
+			system("pause");
+			return 0;
+		}
+		else
+		{
+			if (suu == 3)
+			{
+				printf("密码错误三次，程序退出\n");
+				break;
+			}
+			printf("密码错误，请再次输入:\n");
+			suu++;
+			continue;
+		}
+	}
+	system("pause");
+	return 0;
+}
+
+第四题
+
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	char a, b, c;
+	printf("请输入:\n");
+	scanf("%c", &a);
+	if (a <=57)
+	{
+		return 0;
+	}
+	else if (a>=65 && a <= 90)
+	{
+		printf("%c", (a + 32));
+	}
+	else if (a >= 97 && a <= 122)
+	{
+		printf("%c", (a - 32));
+	}
+	system("pause");
+	return 0;
+}
