@@ -1,0 +1,188 @@
+# practice1
+#include<stdio.h>
+#include<stdlib.h>
+void PrintTables(int number)
+{
+	int i, m;
+	for (i = 1; i <= number; i++)
+	{
+		for (m = 1; m <= i; m++)
+		{
+			printf("%d*%d=%d  ", i, m, i*m);
+			if (i == m)
+			{
+				printf("\n");
+			}
+		}
+	}
+}
+
+int main()
+{
+	int number = 0;
+	printf("请输入要打印的乘法表长度:\n");
+	scanf("%d", &number);
+	PrintTables(number);
+	system("pause");
+	return 0;
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+void Exchange(int* a, int*b)
+{
+	*a = *a + *b;
+	*b = *a - *b;
+	*a = *a - *b;
+}
+int main()
+{
+	int x, y;
+	printf("请输入x和y的值:\n");
+	scanf("%d%d", &x, &y);
+	Exchange(&x, &y);
+	printf("相互交换后值为:\n"); 
+	printf("x=%d\ty=%d", x, y);
+	system("pause");
+	return 0;
+}
+
+#include<stdio.h>
+#include<stdlib.h>
+int Leap_years(int year)
+{
+	if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+int main()
+{
+	int year, result;
+	printf("请输入一个年份:\n");
+	scanf("%d", &year);
+	result = Leap_years(year);
+	if (result == 1)
+	{
+		printf("%d是闰年\n", year);
+	}
+	else
+	{
+		printf("%d不是闰年\n", year);
+	}
+	system("pause");
+	return 0;
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+void init(int a[],int n)
+{
+	int i;
+	for (i = 0; i < n; i++)
+	{
+		a[i] = i;
+	}
+	return;
+}
+void empty(int a[],int n)
+{
+	int i;
+	for (i = 0; i < n; i++)
+	{
+		a[i] = 0;
+	}
+	return;
+}
+
+void exchange(int* a, int* b)
+{
+	*a = *a + *b;
+	*b = *a - *b;
+	*a = *a - *b;
+	return;
+}
+void revers(int a[],int n)
+{
+	int left=0,right=n-1;
+	while (left < right)
+	{
+		exchange(&a[left], &a[right]);
+		left++;
+		right--;
+	}
+	return;
+}
+int main()
+{
+	int arrays[10];
+	int i;
+	init(arrays,10);
+	for (i = 0; i < 10; i++)
+	{
+		printf("%d", arrays[i]);
+	}
+	printf("\n");
+	revers(arrays, 10); 
+	for (i = 0; i < 10; i++)
+	{
+		printf("%d", arrays[i]);
+	}
+	printf("\n");
+	empty(arrays, 10);
+	for (i = 0; i < 10; i++)
+	{
+		printf("%d", arrays[i]);
+	}
+	printf("\n");
+	system("pause");
+	return 0;
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int prime(int a)
+{
+	int i;
+	for (i = 2; i <= a; i++)
+	{
+		if (i == a)
+		{
+			return 1;
+		}
+		if (a%i == 0)
+		{
+			return 0;
+		}
+	}
+	if (a == 1)
+	{
+		return 1;
+	}
+}
+
+int main()
+{
+	int result,number;
+	printf("请输入一个数字:\n");
+	scanf("%d", &number);
+	result = prime(number);
+	if (result == 1)
+	{
+		printf("%d是素数\n", number);
+	}
+	else
+	{
+		printf("%d不是素数\n", number);
+	}
+	system("pause");
+	return 0;
+}
