@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<stdlib.h>
+void find(int arr[][3],int *row, int *col,int key)
+{
+    int x = 0;
+    int y = *col - 1;
+    while (x <*row&&y>0)//判断条件
+    {
+        if (arr[x][y] == key)//找到
+        {
+            *row = x;
+            *col = y;
+            return;
+        }
+        else if (arr[x][y] < key)
+        {
+            x++;//变换行
+        }
+        else
+        {
+            y--;//变换列
+        }
+    }
+    *row = -1;
+    *col = -1;
+}
+int main()
+{
+    int arr[3][3]= {1,2,3,4,5,6,7,8,9};
+    int x=3;
+    int y=3;
+    int *row = &x;
+    int *col = &y;
+    int key=5;
+    find(arr,row,col,key);
+    if (*row == -1 && *col == -1)
+    {
+        printf("没找到\n");
+    }
+    else
+    {
+        printf("找到了，下标为%d %d\n", *row, *col);
+    }
+    system("pause");
+    return 0;
+}
