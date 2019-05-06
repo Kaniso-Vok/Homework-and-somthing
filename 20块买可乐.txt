@@ -1,0 +1,35 @@
+喝汽水，1瓶汽水1元，2个空瓶可以换一瓶汽水，
+给20元，可以多少汽水。
+编程实现
+
+#include<stdio.h>
+#include<stdlib.h>
+void Buy(int* money, int* cola,int* bottle)
+{
+	if (*money > 0)
+	{
+		*money-=1;
+		*cola+=1;
+		*bottle += 1;
+	}
+	if (*bottle == 2)
+	{
+		*cola+=1;
+		*bottle = 1;
+	}
+}
+int main()
+{
+	int all = 20,have=0,bottle=0;
+	int* k1 = &all;
+	int* k2 = &have;
+	int* k3 = &bottle;
+	while (all)
+	{
+		Buy(k1,k2,k3);
+		
+	}
+	printf("最后能买%d瓶\n", have);
+	system("pause");
+	return 0;
+}
