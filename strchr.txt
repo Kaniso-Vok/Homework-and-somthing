@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+char *mystrchr(char *str, char c)
+{
+	int i;
+	for (i = 0; i<strlen(str); i++)
+	{
+		if (*(str + i) == c)
+		{
+			return str + i;
+		}
+	}
+	return NULL;
+}
+int main()
+{
+	char *str = "abcdef";
+	char c = 's';
+	char *fin = mystrchr(str, c);
+	printf("%s", fin);
+	system("pause");
+	return 0;
+}
