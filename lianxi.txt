@@ -1,0 +1,79 @@
+package testmyinteger;
+
+public class TestMyInteger {
+    public static void main(String[] args) {
+        char[] a = {'5','6','3'};
+        String b = "563";
+        MyInteger m1 = new MyInteger(12);
+        MyInteger m2 = new MyInteger(17);
+        System.out.println(m1.isEven());
+        System.out.println(m1.isOdd());
+        System.out.println(m1.isPrime());
+        System.out.println(m1.equals(12));
+        System.out.println(m1.equals(m2));
+        System.out.println(MyInteger.parseInt(a));
+        System.out.println(MyInteger.parseInt(b));
+    }
+}
+class MyInteger{
+    private final int value;
+    public MyInteger(int value){
+        this.value=value;
+    }
+    public int getValue(){
+        return value;
+    }
+    public boolean isEven(){
+        return value%2==0;
+    }
+    public boolean isOdd(){
+        return value%2!=0;
+    }
+    public boolean isPrime(){
+        if(value==1||value==2){
+            return true;
+        }
+        for(int i=2;i<value;i++){
+            if(value%i==0)
+                return false;
+        }
+        return true;
+    }
+    static boolean isEven(int value){
+        return value%2==0;
+    }
+    static boolean isOdd(int value){
+        return value%2!=0;
+    }
+    static boolean isPrime(int value){
+        if(value==1||value==2){
+            return true;
+        }
+        for(int i=2;i<value;i++){
+            if(value%i==0)
+                return false;
+        }
+        return true;
+    }
+    static boolean isEven(MyInteger value){
+        return value.isEven();
+    }
+    static boolean isOdd(MyInteger value){
+        return value.isOdd();
+    }
+    static boolean isPrime(MyInteger value){
+        return value.isPrime();
+    }
+    public boolean equals(int value){
+        return this.value==value;
+    }
+    public boolean equals(MyInteger value){
+        return value.equals(this.value);
+    }
+    static int parseInt(char[] a){
+        return Integer.valueOf(new String(a));
+    }
+    static int parseInt(String b){
+        return Integer.valueOf(b);
+    }
+}
