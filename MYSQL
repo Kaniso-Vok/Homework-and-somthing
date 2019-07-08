@@ -1,0 +1,28 @@
+修改表 alter
+eg：
+
+添加列：
+alter table user add id varchar(20) (first、second等表示插入位置);
+
+删除列：
+eg:
+alter table user drop score;
+
+修改列名:
+eg:
+alter table user change score newscore int;(旧字段名 新字段名 类型)
+
+修改主键：
+eg:
+alter table user add primary key id;
+
+替换replace
+
+
+
+从第五（4+1）行开始显示三行，4可以省略
+select *from egres limit 4,3;
+select *from egres limit 3 offset 4;
+
+
+
