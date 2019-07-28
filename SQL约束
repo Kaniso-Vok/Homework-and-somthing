@@ -1,0 +1,38 @@
+约束
+1.NOT NULL 不可为空
+2.default 默认值
+3.comment 说明（只显示在表头，语句show）
+4.表头中类型后面括号中的是最大打印宽度
+eg：tinyint（4）
+       smallint(6)
+       int（11）
+5.zerofill 其余位数用0填充
+eg：id int(4) zerofill
+
+主键 primary key
+默认是not null
+不定义时系统默认添加一个主题，自己看不到.
+形式1:
+id int unsigned primary key（单个属性组成单主键时）
+形式2:
+primary key（id, . . .）（多个属性组成复合主键时）
+
+自增长 auto_increment
+前提此字段必须是整数
+当对应的字段，不给值，会自动的被系统触发，系统会从当前字段中已经有的最大值+1操作，
+得到一个新的不同的值。通常和主键搭配使用，作为逻辑主键。
+eg：
+id int auto_increment
+
+唯一键 unique key
+
+eg：
+id bigint unique key
+
+外键
+
+
+
+
+
+
