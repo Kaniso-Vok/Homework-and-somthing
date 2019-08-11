@@ -1,0 +1,50 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<string.h>
+
+char *Strchange(char *str1, char *str2,char *str3,int nleng,int leng1)
+{
+	str3 = (char*)malloc((nleng)*sizeof(char));
+	memcpy(str3, str1, leng1);
+	char *p = str3,*sta=str3;
+	int suu = 0;
+	while (suu<nleng)
+	{
+		if (*p == ' ')
+		{
+			char *n = sta + leng1-1;
+			while (*n!=' ')
+			{
+				*(n + 2) = *n;
+				n--;
+			}
+			*p = *str2;
+			*(p + 1) = *(str2 + 1);
+			*(p + 2) = *(str2 + 2);
+		}
+		p++;
+		suu++;
+	}
+	return str3;
+}
+
+int main()
+{
+	char *str1 = "abc defgx yz",*str2="%20",*str3="                            ";
+	int leng1 = strlen(str1);
+	int leng2 = strlen(str2);
+	int nleng = leng1 + leng2 * 2 - 4;
+	str3=Strchange(str1, str2,str3,nleng,leng1);
+	char *p = str3;
+	int i = 0;
+	while (i<nleng)
+	{
+		printf("%c", *p);
+		p++;
+		i++;
+	}
+	system("pause");
+	return 0;
+}
