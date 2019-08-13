@@ -1,0 +1,30 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<string.h>
+
+int calculate(unsigned int n)
+{
+	int result=0,i=0;
+	while (i<32)
+	{
+		if (0^(n >> i))
+		{
+			result++;
+		}
+		i++;
+	}
+	return result;
+}
+int main()
+{
+	unsigned int x;
+	int result;
+	printf("请输入一个无符号整数\n");
+	scanf("%d", &x);
+	result = calculate(x);
+	printf("此无符号整数二进制中1的个数为%u",result);
+	system("pause");
+	return 0;
+}
