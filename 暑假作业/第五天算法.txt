@@ -1,4 +1,4 @@
-SListNode *SlistK(SListNode* phead, int k)//求倒数第k个节点
+SListNode *SlistK(SListNode* phead, int k)
 {
 	SListNode* a;
 	SListNode* b;
