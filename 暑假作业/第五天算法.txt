@@ -1,0 +1,21 @@
+SListNode *SlistK(SListNode* phead, int k)//求倒数第k个节点
+{
+	SListNode* a;
+	SListNode* b;
+	a = phead;
+	b = phead;
+	if (a->next == NULL || b->next == NULL)
+	{
+		return NULL;
+	}
+	for (;a->next!=NULL&&k>1;k--)
+	{
+		a = a->next;
+	}
+	while (a->next)
+	{
+		a = a->next;
+		b = b->next;
+	}
+	return b;
+}
