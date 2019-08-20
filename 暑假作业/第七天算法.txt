@@ -1,57 +1,34 @@
-void HeapAdjust(int A[],int parent,int length) 
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<string.h>
+void minFind(int a[], int m,int k)
 {
-	//temp保存当前父节点parent
-	int temp=A[parent];
-	
-	//左子结点开始，i节点的左孩子为2i+1，右孩子为2i+2
-	for(int child=2*parent+1;child<length;child=2*child+1)
+	int i=0,j=0,tmp;
+	for (i = 0; i < k; i++)
 	{
-		//如果右子节点存在，且右子结点小于左子结点，则指向右子结点
-		if(child+1<length && A[child]>A[child+1])
-		    child++;
-		
-		//如果（左或右）子节点小于父节点，将子节点值赋给父节点（不用进行交换）
-		if(A[child]<temp)
+		for (j = i+1; j < 10; j++)
 		{
-			A[parent]=A[child];
-			parent=child;//选取孩子结点的左孩子结点,child=2*child+1，继续向下筛选
+			if (a[i] >= a[j])
+			{
+				tmp = a[i];
+				a[i] = a[j];
+				a[j] = tmp;
+			}
 		}
-		else //若父节点小于（左和右）孩子节点 ，则直接结束
-			break;
-	}	
-		A[child]=temp;//将temp的值放到最终的位置 
-}
- 
-//建立堆 
-void HeapBuild(int A[],int length)
-{
-	for(int i=length/2-1;i>=0;i--)
-	    HeapAdjust(A,i,length)
-}
- 
-//利用堆找出最小的k个数（小顶堆） 
-int getKMinusByHeap(int read[],int k)
-{
-	if(k<1 || k>read.length())
-	    return -1;
-	
-	int kHeap = new int[k]; //存储k个堆元素 
-	
-	//初始时一次性从文件中读取k个数据到堆中 
-	for(int i=0;i<k;i++)
-	    kHeap[i]=read[i];
-	
-	HeapBuild(kHeap,k); //建小顶堆堆，时间复杂度O(k)
-	
-	// 从文件中一个一个的读取剩余数据
-	for(int i=k;i<read.length();i++)
-	{
-		if(read[i]<kHeap[0]) //读入的元素小于堆顶元素
-		{
-			kHeap[0]=read[i];
-			HeapAdjust(kHeap,0,k);// 从堆顶开始向下进行调整，时间复杂度O(logk)
-		} 
 	}
-	return kHeap; 
+	printf("前%d个最小数分别为: ", k);
+	for (i = 0; i < k; i++)
+	{
+		printf("%d ", a[i]);
+	}
 }
-?
+
+int main()
+{
+	int array[] = { 2, 1, 7, 4, 88, 3, 122, 44, 6, 54 };
+	int k=6;
+	minFind(array,10,k);
+	system("pause");
+	return 0;
+}
