@@ -1,0 +1,35 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<string.h>
+int Find(int a[], int length)
+{
+	int suu ;
+	int i , j ,mid = length / 2;
+	for (i = 0; i < length; i++)
+	{
+		suu = 0;
+		for (j = 0; j < length; j++)
+		{
+			if (a[j] == a[i])
+			{
+				suu++;
+			}
+		}
+		if (suu >= mid)
+		{
+			return a[i];
+		}
+	}
+
+}
+int main()
+{
+	int array[9] = { 1, 2, 3, 2, 2, 2, 5, 4, 2 };
+	int result;
+	result = Find(array,9);
+	printf("数组中出现次数大于数组长度一半的元素是%d ",result);
+	system("pause");
+	return 0;
+}
