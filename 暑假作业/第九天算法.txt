@@ -1,0 +1,35 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<string.h>
+
+void Find(int a[],int length)
+{
+	int res[8];
+	int cmp[8];
+	int i,j,sta=0,end=0,leng=0;
+	for (i = 0; i < length; i++)
+	{
+		if (a[i]>=0)
+		{
+			sta = i;
+			leng++;
+			for (j = i; j < length; j++)
+			{
+
+			}
+		}
+		if (a[i] < 0)
+		{
+			leng++;
+		}
+	}
+}
+int main()
+{
+	int array[] = { 1, -2, 3, 10, -4, 7, 2, -5 };
+	Find(array,8);
+	system("pause");
+	return 0;
+}
