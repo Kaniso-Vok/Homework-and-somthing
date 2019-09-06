@@ -1,0 +1,34 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<string.h>
+
+#define asc 256
+char FindFirst(char *str)
+{
+	int arr[asc] = {0};
+	char *sta = str;
+	while (*sta != '\0')
+	{
+		arr[(*sta)]++;
+		sta++;
+	}
+	sta = str;
+	while (*sta != "\0")
+	{
+		if (arr[*sta] == 1)
+		{
+			return *sta;
+		}
+		sta++;
+	}
+}
+int main()
+{
+	char *str = "abaccdeff";
+	char result = FindFirst(str);
+	printf("%c\n",result);
+	system("pause");
+	return 0;
+}
