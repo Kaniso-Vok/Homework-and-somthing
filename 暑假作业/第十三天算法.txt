@@ -1,0 +1,43 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<string.h>
+
+void Delete(char* str1[], char* str2[],int length1,int length2)
+{
+	char *a, *b=str2;
+	int i,j;
+	char st;
+	for (i = 0; i < length2; i++)
+	{
+		a = str1;
+		for (j = 0; j < length2; j++)
+		{
+			if (*a == *b)
+			{
+				*a = ' ';
+			}
+			a++;
+		}
+		b++;
+	}
+}
+
+int main()
+{
+	char str1[20] = {0};
+	char str2[10];
+	int length2 = sizeof(str2) / sizeof(str2[0]);
+	int length1 = sizeof(str1) / sizeof(str1[0]);
+	int i;
+	scanf("%s", str1);
+	scanf("%s", str2);
+	Delete(str1, str2,length1,length2);
+	for (i = 0; i < length1; i++)
+	{
+		printf("%c", *(str1 + i));
+	}
+	system("pause");
+	return 0;
+}
