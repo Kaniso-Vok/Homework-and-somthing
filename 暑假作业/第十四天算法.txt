@@ -1,0 +1,40 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<stdlib.h>
+
+int Judge(int hui)
+{
+	int a[20];
+	int i,j;
+	for (i = 0;hui; i++)
+	{
+		a[i] = hui % 10;
+		hui /= 10;
+	}
+	j = i;
+	i--;
+	for (j = 0; j!=i;j++,i--)
+	{
+		if (a[i] != a[j])
+			return 0;
+	}
+	return 1;
+}
+
+int main()
+{
+	int in;
+	int result;
+	scanf("%d", &in);
+	result=Judge(in);
+	if (result == 0)
+	{
+		printf("不是回文");
+	}
+	else
+	{
+		printf("是回文");
+	}
+	system("pause");
+	return 0;
+}
