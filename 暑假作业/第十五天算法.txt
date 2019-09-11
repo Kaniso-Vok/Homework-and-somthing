@@ -1,0 +1,12 @@
+SListNode* SListFindMid(SListNode* phead)//查找中间位置
+{
+	SListNode* tmp1,*tmp2;
+	for (tmp1 = phead,tmp2=phead; tmp1; tmp1 = tmp1->next,tmp2=tmp2->next->next)
+	{
+		if (tmp2->next==NULL)
+		{
+			return tmp1;
+		}
+	}
+	return NULL;
+}
