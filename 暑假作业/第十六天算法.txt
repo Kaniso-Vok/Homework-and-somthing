@@ -1,0 +1,22 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<stdlib.h>
+
+
+int Pow(int a, int b)
+{
+	int i,sum=1;
+	for (i = 0; i < b; i++)
+	{
+		sum *= a;
+	}
+	return sum;
+}
+
+int main()
+{
+	int a=2, b=4;
+	printf("--%d--", Pow(a, b));
+	system("pause");
+	return 0;
+}
