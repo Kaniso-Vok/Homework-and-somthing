@@ -1,0 +1,58 @@
+public class TestFan {
+    public static void main(String[] args) {
+    Fan o1=new Fan();
+    Fan o2=new Fan();
+    o1.setspeed(o1.FAST);
+    o1.setradius(10);
+    o1.setcolor("yellow");
+    o1.seton(true);
+    o2.setspeed(o1.MEDIUM);
+    o2.setradius(5);
+    o2.setcolor("blue");
+    o2.seton(false);
+    System.out.println(o1.toString());
+    System.out.println(o2.toString());
+    } 
+}
+
+class Fan{
+int SLOW=1,MEDIUM=2,FAST=3;
+private int speed=SLOW;
+private boolean on=false;
+private double radius=5;
+String color="blue";
+public Fan(){
+}
+public void setspeed(int newspeed){
+speed=newspeed;
+}
+public void seton(boolean newon){
+on=newon;
+}
+public void setradius(double newradius){
+radius=newradius;
+}
+public void setcolor(String newcolor){
+color=newcolor;
+}
+public int getspeed(){
+return speed;
+}
+public boolean geton(){
+return on;
+}
+public double getradius(){
+return radius;
+}
+public String getcolor(){
+return color;
+}
+public String toString(){
+if(on){
+return speed+" "+color+" "+radius;
+}
+else{
+return "fan is off";
+}
+}
+}

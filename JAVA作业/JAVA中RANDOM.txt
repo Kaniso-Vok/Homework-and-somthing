@@ -1,0 +1,18 @@
+语句：
+(char)(int)(Math.random()*26+65)产生大写字母A~Z，
+(char)(int)(Math.random()*26+97)产生小写字母a~z，
+(char)(int)(Math.random()*58）+65产生随机一个字符。
+在位运算中，字母|0x20=小写字母，字母&0xdf=大写字母。
+
+    public class test3{
+    	public static void main(String args[]){ 
+    		int a=(int)(Math.random()*58)+65;  //随机产生一个字符
+    		System.out.println("转换前： "+(char)a);
+    		/*int b=a>97?a-32:a;  //小写字母转换为大写字母
+    		char c=(char)b;
+    		System.out.println("转换后："+c);
+                                 */
+    		int b=a>97?a&0xdf:a;//位运算转换为大写字母
+    		char c=(char)b;
+    		System.out.println("转换后： "+c);
+    	}
