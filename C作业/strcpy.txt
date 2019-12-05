@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<assert.h>
+
+
+char* my_strcpy(char* dest, const char* src) //const使在函数中不能修改*src原先的值  
+{
+    assert(dest);    //两次断言-->检验参数，增加代码健壮性  
+    assert(src);
+    char* strdest = dest;    //保存原始指针地址
+    while (*src)
+    {
+        *dest++ = *src++;
+    }
+    *dest = '\0';
+    return strdest;
+}
+
+
+int main()
+{
+    char arr1[] = "hello world!";
+    char arr2[20] ;
+    char* ret = my_strcpy(arr2, arr1);
+    printf("%s", ret);
+    system("pause");
+    return 0;
+}

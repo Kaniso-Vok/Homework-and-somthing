@@ -1,0 +1,8 @@
+磁盘（rom）内存（ram）优点：数据格式化，查询方便mysql -h(host主机) 127.0.0.1 -p(part端口) 3306 -u root -p（设置密码）汉字常用编码GBK   GB2312（都为两字节表示汉字）UNICODE，首部增加了一个字节来表示地区编码（三字节表示汉字，国际通用）BIG5（繁体字常用）Mysql下1.“”与‘’无区别2.不编译关键字3.utf8情况下varchar最高上限长度21844，gbk情况下最高上限长度32766（利用charset改变）4.命令语言  []可选   {}必选   |多选一5.类型
+	* bit（m）m取值范围（1，64），不带m时大小为1位
+	* float[(m,d)]m有效数字位数，d小数位数
+	* timestamp时间戳，1970.1.1零点到现在经过的秒数
+	* enum（选择项，多选一）   create table sex（sex enum(‘男’，‘女’)）；插入时1表示男2表示女（语句：insert into sex value(‘1’)；）。
+	* set(多选多)用法同enum
+
+低级格式化方法touch 1.txtfor ture(任意指令)>>1.txtrof(循环导致)

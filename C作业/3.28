@@ -1,0 +1,54 @@
+# practice1
+
+import java.util.*;
+
+public class First{
+public static void main(String args[]){
+Scanner ss=new Scanner(System.in);
+System.out.println("请输入一个数");
+int number=ss.nextInt();
+int result=sumDigits(number);
+System.out.println("结果为:"+result);
+}
+static int sumDigits(int n){
+int suu=0;
+while(n!=0){
+suu+=n%10;
+n=n/10;
+}
+return suu;
+}
+}
+
+import java.util.*;
+
+public class First{
+public static void main(String args[]){
+Scanner ss=new Scanner(System.in);
+System.out.println("请输入一个整数");
+int number=ss.nextInt();
+int result=isPrime(number);
+if(result==1)
+{
+    System.out.println(number+"是一个素数");
+}
+else
+{
+    System.out.println(number+"不是一个素数");
+}
+}
+static int isPrime(int n){
+for(int i=1;i<=n;i++)
+{
+    if(i==n)
+    {
+        return 1;
+    }
+    if(n%i==0&&i!=1)
+    {
+        break;
+    }
+}
+return 0;
+}
+}

@@ -1,0 +1,30 @@
+# practice1
+
+#include<stdlib.h>
+#include<stdio.h>
+char* my_strcpy(char*strdest, char*strsrc)
+{
+	if (strdest == NULL || strsrc == NULL)
+	{
+		return NULL;
+	}
+	char *address = strdest;
+	while (( *strdest++ = *strsrc++ )!= '\0')
+	{
+		;
+	}
+	return address;
+}
+int main()
+{
+	char src[] = "abcdef";
+	char dest[] = {0};
+	my_strcpy(dest, src);
+	int i = 0;
+	for (i = 0; i < 6; i++)
+	{
+		printf("%c", dest[i]);
+	}
+	system("pause");
+	return 0;
+}

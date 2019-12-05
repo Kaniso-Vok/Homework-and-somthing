@@ -1,0 +1,33 @@
+结构体是一个变量，不同于数组
+要改结构体的数据需要传入结构体地址
+->意为（*）.
+eg:
+pos->data同于(*pos).data
+
+单链表遍历：
+        SListNode* tmp;
+        for (tmp = phead; tmp; tmp = tmp->next)
+
+
+删除链表中等于给定值 val 的所有节点。
+        for (tmp = *pphead; tmp || tmp->next; tmp = tmp->next)
+{
+        if (tmp->next->data == x)
+        {
+               SListEraseAfter(tmp);
+               return;
+        }
+        else
+        {
+               tmp = tmp->next;
+        }
+}
+反转一个单链表。
+
+输入两个链表，找出它们的第一个公共结点。
+给定一个链表，判断链表中是否有环。
+给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 NULL
+
+malloc得到的空间在堆上
+更改节点的next传入的是指向该节点的地址（一级指针）
+要修改指针的指向需要传指针的地址（二级指针）

@@ -1,0 +1,103 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	int a, b,c;
+	scanf("%d%d", &a, &b);
+	c = a;
+	a = b;
+	b = c;
+	printf("%d%4d", a, b);
+	system("pause");
+	return 0;
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	int x, y;
+	scanf("%d%d", &x, &y);
+	x = x + y;
+	y = x - y;
+	x = x - y;
+	printf("%d%2d", x, y);
+	system("pause");
+	return 0;
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	int a[10];
+	int i, m;
+	for (i = 0; i < 10; i++)
+		scanf("%d", &a[i]);
+	for (i = a[0], m = 1; m < 9; m++)
+		if (i < a[m])
+			i = a[m];
+	printf("MAX=%d\n", i);
+	system("pause");
+	return 0;
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	int x, y, z;
+	scanf("%d%d%d", &x, &y, &z);
+	if (x < y)
+	{
+		x = y;
+		if (x < z)
+			x = z;
+	}
+	if (x < z)
+		x = z;
+	printf("MAX=%d\n", x);
+	system("pause");
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	int a, b,i;
+	scanf("%d%d", &a, &b);
+	if (b < a)
+	{
+		i = b;
+		b = a;
+		a = i;
+	}
+		if (b%a == 0)
+		{
+			printf("最大公约数为%d\n", a);
+			system("pause");
+			return 0;
+		}
+		if (b%a != 0)
+		{
+			for (i = a; i>0;i--)
+			if (i%b == 0 && i%a == 0)
+			{
+				printf("最大公约数为%d\n", i);
+				system("pause");
+				return 0;
+			}
+			else
+			{
+				printf("最大公约数为1\n");
+				system("pause");
+				return 0;
+			}
+		
+			}
+
+}

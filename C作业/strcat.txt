@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+void mystrcat(char *arr1, char *arr2,int leng)
+{
+	int i=1,m=0,length=0;
+	while(i)
+	{
+		if (*(arr1 + m) != '\0')
+		{
+			length++;
+			m++;
+			continue;
+		}
+		i = 0;
+	}
+	for (i = length, m = 0; i <= length + leng; m++, i++)
+	{
+		*(arr1 + i) = *(arr2 + m);
+	}
+}
+int main()
+{
+	char arr1[10] = "abcd";
+	char *arr2 = "efghh";
+	int leng = strlen(arr2);
+	mystrcat(arr1, arr2,leng);
+	printf("%s", arr1);
+	system("pause");
+	return 0;
+}

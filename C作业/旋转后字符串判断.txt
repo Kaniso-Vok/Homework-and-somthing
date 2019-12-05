@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<string.h>
+int judge(char *str1, char *str2)
+{
+  strncat(str1, str1, strlen(str1));//原字符串拼接本身
+    char *result = strstr(str3, str2);//查找目标字符串
+    if (result == NULL)
+    {
+        return -1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+int main()
+{
+    char str1[] = "ABCDE";
+    char str2[] = "CDEAB";
+    char str3[] = "DEBAC";
+    int result = judge(str1, str2);
+    if (result == -1)
+    {
+        printf("str2不是由str1旋转得到\n");
+    }
+    else
+    {
+        printf("str2是由str1旋转得到\n");
+    }
+    result = judge(str1, str3);
+    if (result == -1)
+    {
+        printf("str3不是由str1旋转得到\n");
+    }
+    else
+    {
+        printf("str3是由str1旋转得到\n");
+    }
+    system("pause");
+    return 0;
+}
